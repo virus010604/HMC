@@ -7,11 +7,11 @@ function pesanMakanan(namaMakanan, waktuPembuatan) {
   });
 }
 
-// Fungsi untuk mengantarkan makanan
+// mengantarkan makanan
 function antarMakanan(namaMakanan, waktuAntar) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      // Simulasi pengantaran berhasil atau gagal
+      // pengantaran berhasil atau gagal
       if (Math.random() > 0.2) {
         resolve(`${namaMakanan} sudah diantar!`);
       } else {
@@ -21,7 +21,7 @@ function antarMakanan(namaMakanan, waktuAntar) {
   });
 }
 
-// Fungsi untuk memesan dan mengantarkan dua makanan secara bersamaan
+// memesan dan mengantarkan dua makanan secara bersamaan
 function prosesMakananAllSettled() {
   const makanan1 = "Pizza";
   const makanan2 = "Burger";
