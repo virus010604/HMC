@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+  <section style="height: 90vh; justify-content: center; align-items: center; display: flex;">
+    <div>
+      <h1>Selamat Datang Di Aplikasi Aktivitas Harian</h1>
+      <div class="container">
+        <form id="activityForm">
+          <label for="masuk">Masukan Kegiatan:</label>
+          <input type="text" name="masuk" id="activityInput" />
+          <button type="submit" class="btn">Tambah</button>
+        </form>
+        <h1>Daftar Kegiatan</h1>
+        <center>
+          <table class="kotak" border="1" cellpadding="15px" style="width: 100%;">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Kegiatan</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="activityTableBody">
+              <!-- Data akan ditambahkan di sini -->
+            </tbody>
+          </table>
+        </center>
+      </div>
+    </div>
+  </section>
+  <script>
+    const activityForm = document.getElementById('activityForm');
+    const activityInput = document.getElementById('activityInput');
+    const activityTableBody = document.getElementById('activityTableBody');
+
+    // Fungsi untuk memuat data dari localStorage
+    function loadActivities() {
+      const keys = Object.keys(localStorage).sort(); // Ambil semua key dan urutkan
+      keys.forEach(key => {
+        const activity = localStorage.getItem(key);
+        if (activity) {
+          addActivityToTable(key, activity);
+        }
+      });
+    }
+
+    // Fungsi untuk menyimpan kegiatan ke localStorage
+    function saveActivity(no, activityText) {
+      localStorage.setItem(no, activityText); // Simpan kegiatan dengan nomor urut sebagai key
+    }
+
+    // Fungsi untuk menambah kegiatan ke tabel dan localStorage
+    activityForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const activityText = activityInput.value; 
+      if (activityText === "") return;
+
+      let totalActivities = localStorage.length; // Mengambil jumlah kegiatan yang tersimpan
+      totalActivities++; // Tambahkan nomor urut
+
+      saveActivity(totalActivities, activityText); // Simpan ke localStorage
+
+      addActivityToTable(totalActivities, activityText); // Tambahkan ke tabel
+
+      activityInput.value = ''; // Kosongkan input
+    });
+
+    // Fungsi untuk menambahkan kegiatan ke tabel
+    function addActivityToTable(no, activityText) {
+      const newRow = document.createElement('tr');
+
+      newRow.innerHTML = `
+        <td>${no}</td>
+        <td>${activityText}</td>
+        <td>
+          <button onclick="editActivity(this)">Edit</button>
+          <button onclick="deleteActivity(this, ${no})">Delete</button>
+        </td>
+      `;
+
+      activityTableBody.appendChild(newRow);
+    }
+
+    // Fungsi untuk menghapus kegiatan
+    function deleteActivity(button, no) {
+      const row = button.parentNode.parentNode;
+      row.remove(); 
+
+      localStorage.removeItem(no); // Hapus dari localStorage
+
+      updateActivityNumbers(); // Perbarui nomor urut
+    }
+
+    // Fungsi untuk mengedit kegiatan
+    function editActivity(button) {
+      const row = button.parentNode.parentNode;
+      const activity = row.children[1];
+      const oldActivity = activity.textContent;
+      const no = row.children[0].textContent;
+      const newActivity = prompt("Edit kegiatan:", oldActivity);
+
+      if (newActivity && newActivity !== oldActivity) {
+        activity.textContent = newActivity;
+        saveActivity(no, newActivity); // Update di localStorage
+      }
+    }
+
+    // Fungsi untuk memperbarui nomor urut
+    function updateActivityNumbers() {
+      const rows = activityTableBody.querySelectorAll('tr');
+      rows.forEach((row, index) => {
+        const no = index + 1;
+        row.children[0].textContent = no; // Perbarui nomor urut
+        const activityText = row.children[1].textContent;
+        localStorage.setItem(no, activityText); // Perbarui di localStorage
+      });
+
+      // Hapus key yang tidak digunakan lagi
+      for (let i = rows.length + 1; localStorage.getItem(i); i++) {
+        localStorage.removeItem(i);
+      }
+    }
+
+    // Memuat kegiatan dari localStorage saat halaman dimuat
+    loadActivities();
+  </script>
+</body>
+</html>

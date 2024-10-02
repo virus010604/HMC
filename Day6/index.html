@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+      
+        let temp = 1;
+    
+        function CreateElement() {
+          const value = document.getElementById("inputText").value;
+          const newElement = document.createElement("div");
+    
+          newElement.innerText = `${value} ${temp}`;
+          newElement.setAttribute("id", `${temp}`);
+    
+          const div1 = document.getElementById("div1");
+    
+          div1.appendChild(newElement);
+    
+          if (temp === 8) {
+            alert("Juan yang pukul");
+          }
+    
+          temp++;
+        }
+      </script>
+</body>
+</html>
