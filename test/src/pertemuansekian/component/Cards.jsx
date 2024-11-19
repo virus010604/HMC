@@ -14,7 +14,7 @@ export const Cards = () => {
     if (fetchNow) {
       setIsLoading(true);
       setTimeout(() => {
-        fetch("https://jsonplaceholder.typicode.com/posts")
+        fetch("https://fakestoreapi.com/products")
           .then((response) => response.json())
           .then((json) => {
             setData(json);
@@ -27,7 +27,6 @@ export const Cards = () => {
       }, 5000); 
     }
   }, [fetchNow]);
-
   return (
     <main>
       {isLoading ? (
@@ -39,14 +38,16 @@ export const Cards = () => {
             LOAD
           </button>
         </center>
-          <div className="flex flex-wrap gap-4 p-4">
+          <div className="flex flex-wrap gap-4 p-4 justify-center">
             {data?.map((item, index) => (
               <Card
                 key={index}
-                userId={item?.userId}
-                id={item?.id}
+                img={item?.image}
+                category={item?.category}
+                description={item?.description}
                 title={item?.title}
-                body={item?.body}
+                price={item?.price}
+                id={item?.id}
                 btn="TAMBAHKAN"
               />
             ))}
