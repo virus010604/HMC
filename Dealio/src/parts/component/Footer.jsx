@@ -2,13 +2,13 @@ import React from "react";
 import { Facebook, Instagram, Twitter,Youtube, Linkedin } from "lucide-react";
 function Footer() {
   return (
-    <footer className="w-full flex justify-center flex-col bg-[#572dff0a] p-20 gap-20 pb-3">
+    <footer className="w-full flex justify-center flex-col bg-[#572dff0a] p-20 gap-20 pb-9">
         <div className="flex justify-center gap-28">
       <div className="flex ">
         <img
           src="../../src/parts/assets/img/footpic.png"
           alt=""
-          className="w-[300px]"
+          className="w-[300px] object-cover"
         />
       <div className="flex flex-col gap-4 w-[350px]">
         <h1 className="font-bold text-[#572Dff] text-lg">Delio Indonesia</h1>
@@ -59,7 +59,7 @@ function Footer() {
             <a href="" className="hover:-translate-y-1 transition-all"><Linkedin color="#572dff"/></a>
             </div>
             <div>
-                <h1>&copy;Designed by <strong className="text-[#572dff]">Juan</strong></h1>
+                <h1>&copy;Designed by <strong className="text-[#572dff]">Juan</strong> | 2024</h1>
             </div>
         </div>
     </footer>

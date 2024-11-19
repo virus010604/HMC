@@ -7,9 +7,11 @@ const Navbar = () => {
     <div className="text-sm  font-bold bg-[#572dff] px-20 py-5 shadow-md flex text-white justify-between items-center fixed top-0 right-0 left-0 z-50">
       <a href="" className="text-3xl">Dealio</a>
       <nav className="flex gap-6 items-center">
-        <a href="">Home</a>
+        <Link to="/Beranda">
+        Home
+        </Link>
         <a href="">About Us</a>
-        <a href="">Contact</a>
+        <a href="#foot">Contact</a>
         <div className=" flex gap-7 items-center">
           <div className="flex items-center bg-white p-2 rounded-full px-4 gap-1">
             <input

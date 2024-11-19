@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import { useNavigate } from "react-router-dom";
-
 export const Cards = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -23,7 +22,7 @@ export const Cards = () => {
         });
     }, 1000);
   }, [selectedCategory]);
-
+  console.log(data);
   const filteredData = selectedCategory
     ? data.filter((item) => item.category === selectedCategory)
     : data;
@@ -60,10 +59,10 @@ export const Cards = () => {
             </option>
           </select>
 
-          <div className="flex  gap-4 w-full flex-wrap justify-start items-center">
+          <div className="grid  gap-11 w-full grid-cols-3">
             {filteredData.map((item, index) => (
               <Card
-               data = {item}
+                data={item}
                 key={index}
                 img={item.image}
                 category={item.category}
@@ -71,6 +70,7 @@ export const Cards = () => {
                 title={item.title}
                 price={item.price}
                 id={item.id}
+                rattings={item.rating.rate}
                 btn="Add to cart"
                 onclick={() => arah(`/Detail/${item.id}`)}
               />

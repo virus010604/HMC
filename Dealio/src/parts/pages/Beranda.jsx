@@ -12,11 +12,11 @@ function App() {
     <div>
       <Navbar />
     </div>
-      <div className="flex p-20 justify-center mt-24 items-center w-full">
+      <div className="flex p-20 justify-center mt-24 items-center w-full mx-auto">
         <Cards />
       </div>
 
-      <div>
+      <div id="foot">
         <Footer/>
       </div>
     </>
