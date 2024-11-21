@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import { useNavigate } from "react-router-dom";
-export const Cards = () => {
+
+export const Cards = ({ onAddToCart }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -22,7 +23,7 @@ export const Cards = () => {
         });
     }, 1000);
   }, [selectedCategory]);
-  console.log(data);
+
   const filteredData = selectedCategory
     ? data.filter((item) => item.category === selectedCategory)
     : data;
@@ -72,7 +73,10 @@ export const Cards = () => {
                 id={item.id}
                 rattings={item.rating.rate}
                 btn="Add to cart"
-                onclick={() => arah(`/Detail/${item.id}`)}
+                onclick={() => {
+                  arah(`/Detail/${item.id}`);
+                }}
+                onAddToCart={onAddToCart}
               />
             ))}
           </div>

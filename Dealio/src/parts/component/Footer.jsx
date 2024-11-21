@@ -2,7 +2,7 @@ import React from "react";
 import { Facebook, Instagram, Twitter,Youtube, Linkedin } from "lucide-react";
 function Footer() {
   return (
-    <footer className="w-full flex justify-center flex-col bg-[#572dff0a] p-20 gap-20 pb-9">
+    <footer className="w-full flex justify-center flex-col bg-[#572dff0a] p-20 gap-20 pb-9 flex-wrap">
         <div className="flex justify-center gap-28">
       <div className="flex ">
         <img
@@ -26,26 +26,25 @@ function Footer() {
       </div>
       </div>
       <div className="flex flex-col gap-4">
-      <h1 className="font-bold text-[#572Dff] text-lg">Navigasi</h1>
-      <div className="flex gap-3">
+      <h1 className="font-bold text-[#572Dff] text-lg">Tautan yang berguna</h1>
+      <div className="flex gap-6">
 
-        <div className="flex flex-col">
-      <a href="">Home</a>
-      <a href="">Keranjang</a>
-      <a href="">About us</a>
+        <div className="flex flex-col gap-1">
+      <a href="">Kebijakan Pengembalian</a>
+      <a href="">Delio untuk bisnis</a>
+      <a href="">Pick-up Point Delio</a>
+      <a href="">Bekerja di Delio</a>
+      <a href="">Beita</a>
       <a href="">FAQs</a>
-      <a href="">Lorem ipsum dolor</a>
-      <a href="">Lorem ipsum dolor</a>
-      <a href="">Lorem ipsum dolor</a>
+      <a href="">Event</a>
         </div>
-        <div className="flex flex-col">
-      <a href="">Lorem ipsum dolor</a>
-      <a href="">Lorem ipsum dolor</a>
-      <a href="">Lorem ipsum dolor</a>
-      <a href="">Lorem ipsum dolor</a>
-      <a href="">Lorem ipsum dolor</a>
-      <a href="">Lorem ipsum dolor</a>
-      <a href="">Lorem ipsum dolor</a>
+        <div className="flex flex-col gap-1">
+      <a href="">Layanan Pelanggan</a>
+      <a href="">Setifikasi Produk</a>
+      <a href="">Hubungi kami :</a>
+      <a href=""><strong className="text-[#572dff]">+62745*****</strong></a>
+      <a href=""><strong className="text-[#572dff]">Dealio@gmail.com</strong></a>
+      <a href=""><strong className="text-[#572dff]">@Dealio</strong></a>
         </div>
       </div>
       </div>
