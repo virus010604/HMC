@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const Ratting = ({ rattings }) => {
   return (
-    <div className="flex items-center gap-1">
+    <div className="lg:flex items-center gap-1 hidden ">
       {Array.from({ length: 5 }, (_, index) => (
         <svg
           key={index}

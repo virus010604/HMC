@@ -41,7 +41,7 @@ export const Cards = ({ onAddToCart }) => {
           <select
             onChange={(e) => setSelectedCategory(e.target.value)}
             value={selectedCategory}
-            className="p-2 border rounded mb-4 outline-none"
+            className="p-2 border rounded mb-4 outline-none text-sm lg:text-base"
           >
             <option value="" className="">
               Show All
@@ -60,7 +60,7 @@ export const Cards = ({ onAddToCart }) => {
             </option>
           </select>
 
-          <div className="grid  gap-11 w-full grid-cols-3">
+          <div className="grid  gap-11 w-[100%] lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
             {filteredData.map((item, index) => (
               <Card
                 data={item}
