@@ -3,12 +3,12 @@ import { Plus } from "lucide-react";
 import Ratting from "./Ratting";
 import Swal from "sweetalert2";
 
-const Card = ({ category, id, title, price, btn, img, description, onclick, data, rattings, onAddToCart }) => {
+const Card = ({ id, title, price, btn, img, onclick, data, rattings, onAddToCart }) => {
   const handleAddToCart = () => {
     const existingItem = JSON.parse(localStorage.getItem(id));
     if (existingItem) {
       existingItem.quantity += 1;
-      localStorage.setItem(id, JSON.stringify(existingItem));
+      localStorage.setItem(id , JSON.stringify(existingItem));
     } else {
       const newItem = { ...data, quantity: 1 };
       localStorage.setItem(id, JSON.stringify(newItem));
@@ -39,10 +39,10 @@ const Card = ({ category, id, title, price, btn, img, description, onclick, data
         <div className="lg:text-base text-gray-800 text-sm">
           <strong>{title}</strong>
         </div>
-        <div className="space-y-2">
-          <div className=" items-center gap-3 hidden lg:flex">
+        <div className="space-y-4">
+          <div className=" items-center gap-3  hidden lg:flex">
             <Ratting rattings={rattings} />
-            <h2>{rattings} out of 5</h2>
+            <h2 className=""><strong className="">{rattings}</strong> / 5.0</h2>
           </div>
           <div className="flex justify-between items-center flex-col lg:flex-row gap-2">
             <h1 className="lg:text-base text-gray-600 text-sm">

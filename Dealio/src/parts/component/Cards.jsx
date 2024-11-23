@@ -21,7 +21,7 @@ export const Cards = ({ onAddToCart }) => {
           setIsLoading(false);
           console.error("error fetching data: ", error);
         });
-    }, 1000);
+    }, 2000);
   }, [selectedCategory]);
 
   const filteredData = selectedCategory
@@ -29,12 +29,17 @@ export const Cards = ({ onAddToCart }) => {
     : data;
 
   return (
-    <main className="w-full flex flex-col items-start justify-center">
+    <main className="w-full flex flex-col items-start justify-center mx-auto">
       {isLoading ? (
         <>
-          <div className="w-full h-[100vh] flex justify-center items-center">
-            <h1 className="text-center">Loading...</h1>
-          </div>
+        <div className="grid grid-cols-3 gap-10 mx-auto w-full">
+        <div className="bg-gray-200 h-[70vh] w-[50vh]"></div>
+        <div className="bg-gray-200 h-[70vh] w-[50vh]"></div>
+        <div className="bg-gray-200 h-[70vh] w-[50vh]"></div>
+        <div className="bg-gray-200 h-[70vh] w-[50vh]"></div>
+        <div className="bg-gray-200 h-[70vh] w-[50vh]"></div>
+        <div className="bg-gray-200 h-[70vh] w-[50vh]"></div>
+        </div>
         </>
       ) : (
         <>

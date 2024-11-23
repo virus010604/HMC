@@ -3,6 +3,7 @@ import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 import CardK from "../component/CardK";
 import Swal from "sweetalert2";
+import Layout from "../component/Layout";
 
 const Keranjang = () => {
   const [data, setData] = useState([]);
@@ -27,8 +28,9 @@ const Keranjang = () => {
   }, []);
 
   return (
-    <>
-      <Navbar />
+    <Layout>
+    
+    
       <div className="mt-16 lg:p-20 space-y-10 p-10">
         <div className="grid grid-flow-row gap-5 w-full">
           {data.map((item, index) => (
@@ -50,25 +52,38 @@ const Keranjang = () => {
           </h2>
           <button className="py-2 px-4 rounded-full text-[#572dff] font-bold border border-[#572dff]  hover:bg-[#572dff] hover:text-white transition-all text-sm lg:text-base"
           onClick={() => {
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              titleText: "Thank you for your purchase",
-              showConfirmButton: true,
-              backdrop: true,
-              iconColor: "#572dff",
-              confirmButtonColor: "#572dff",
-            });
-            localStorage.clear();
-            setRefresh(refresh + 1);
+             if (data.length === 0) {
+              Swal.fire({
+                position: "center",
+                icon: "error",
+                titleText: "Your cart is empty",
+                showConfirmButton: true,
+                backdrop: true,
+                iconColor: "#572dff",
+                confirmButtonColor: "#572dff",
+              });
+              return;
+             }else{
+               Swal.fire({
+                 position: "center",
+                 icon: "success",
+                 titleText: "Thank you for your purchase",
+                 showConfirmButton: true,
+                 backdrop: true,
+                 iconColor: "#572dff",
+                 confirmButtonColor: "#572dff",
+               });
+               localStorage.clear();
+               setRefresh(refresh + 1);
+             }
           }}
           >
             Checkout
           </button>
         </div>
       </div>
-      <Footer />
-    </>
+   
+    </Layout>
   );
 };
 

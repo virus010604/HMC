@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   CircleUserRound,
@@ -12,6 +12,11 @@ import Swal from "sweetalert2";
 
 export const awal = () => {
   const [isValid, setIsValid] = useState(false);
+  const [showPassword, setShowPassword] = useState(false)
+
+ const handleShowPassword = () => {
+  setShowPassword(!showPassword)
+ }
 
   return (
     <div className="w-full flex h-[100vh]">
@@ -24,7 +29,7 @@ export const awal = () => {
       </div>
       <div className="flex flex-col  lg:w-1/2 px-10 py-5 justify-center h-full items-center gap-10 lg:gap-2">
         <h1 className="text-6xl ">
-          <strong className="text-[#572dff]">Dealio</strong>
+          <strong className="text-[#572dff] font-geo">Dealio</strong>
         </h1>
         <div className="w-full flex justify-center">
           <form
@@ -53,21 +58,23 @@ export const awal = () => {
                 <div className="flex gap-2  border-2 items-center rounded-full px-4 py-2 w-full">
                   <Lock color="#572dff" />
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     className="p-1 outline-none w-full"
-                    id="pass"
+
                     placeholder="ketik disini..."
                   />
                   <button
-                    onClick={(e) => {
-                      if (document.getElementById("pass").type === "password") {
-                        document.getElementById("pass").type = "text";
-                        e.preventDefault();
-                      } else {
-                        e.preventDefault();
-                        document.getElementById("pass").type = "password";
-                      }
-                    }}
+                    onClick={handleShowPassword}
+                    type="button"
+                    // onClick={(e) => {
+                    //   if (document.getElementById("pass").type === "password") {
+                    //     document.getElementById("pass").type = "text";
+                    //     e.preventDefault();
+                    //   } else {
+                    //     e.preventDefault();
+                    //     document.getElementById("pass").type = "password";
+                    //   }
+                    // }}
                   >
                     <Eye color="black" className="cursor-pointer" />
                   </button>
@@ -75,10 +82,12 @@ export const awal = () => {
               </div>
             </div>
 
-            <Link to={isValid ? "/Beranda" : "#"} className="w-full">
+            <Link to="/Beranda" className="w-full">
               <button
                 className="bg-[#572dff] p-2 text-white rounded-full px-4 font-bold w-full"
+                type="submit"
                 onClick={() => {
+                
                   if (
                     document.getElementById("user").value == "admin" &&
                     document.getElementById("pass").value == "admin"
@@ -136,7 +145,7 @@ export const awal = () => {
           </a>
         </div>
         <p className="text-center">
-          Belum Punya Aku?
+          Belum Punya Akun?
           <span className="text-[#572dff] underline">Daftar Disni</span>
         </p>
       </div>

@@ -19,8 +19,15 @@ const CardK = ({ judul, harga, gambar, id, quantity, setRefresh, refresh }) => {
       <button
         className="h-fit"
         onClick={() => {
-          localStorage.removeItem(`${id}`);
-          setRefresh(refresh + 1);
+          if (quantity > 1) {
+            const existingItem = JSON.parse(localStorage.getItem(id));
+            existingItem.quantity -= 1;
+            localStorage.setItem(id, JSON.stringify(existingItem));
+            setRefresh(refresh + 1);
+          } else{
+            localStorage.removeItem(`${id}`);
+            setRefresh(refresh + 1);
+          }
         }}
       >
         <Minus color="red" />

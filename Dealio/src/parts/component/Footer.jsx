@@ -8,7 +8,7 @@ function Footer() {
           <img
             src="../../src/parts/assets/img/footpic.png"
             alt=""
-            className="w-[300px] object-cover hidden lg:block"
+            className="w-[250px] object-cover hidden lg:block"
           />
           <div className="flex flex-col gap-4 lg:w-[350px]">
             <h1 className="font-bold text-[#572Dff] text-lg">
