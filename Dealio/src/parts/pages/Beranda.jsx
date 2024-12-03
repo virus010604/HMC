@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Cards } from "../component/Cards"; // Import Cards
-import Navbar from "../component/Navbar";
-import Footer from "../component/Footer";
 import Sidebar from "../component/Sidebar";
 import Sidebtn from "../component/Sidebtn";
 import Gallery from "../component/Gallery";
+import Layout from "../component/Layout";
 
 function Beranda() {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
@@ -20,9 +19,8 @@ function Beranda() {
 
   return (
     <>
-      <div>
-        <Navbar />
-      </div>
+    <Layout>
+
       <div className="mt-28 mx-auto flex w-full items-center justify-center gap-10 lg:p-20 flex-col lg:flex-row p-10">
         <h1 className="lg:text-right text-5xl lg:text-7xl text-center">
           Welcome To <strong className="text-[#572dff]">Dealio</strong>
@@ -50,9 +48,7 @@ function Beranda() {
           refreshSidebar={refreshSidebar}
         />
       </div>
-      <div id="foot">
-        <Footer />
-      </div>
+    </Layout>
     </>
   );
 }

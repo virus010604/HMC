@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../component/Navbar";
 import { useParams } from "react-router-dom";
-import Footer from "../component/Footer";
 import { Plus } from "lucide-react";
 import Ratting from "../component/Ratting";
 import Swal from "sweetalert2"; 
+import Layout from "../component/Layout";
 
 function detail() {
   const { id } = useParams();
@@ -29,12 +28,19 @@ function detail() {
     scroll(0, 0);
   });
   return (
-    <>
+    <Layout>
       {isLoading ? (
         <>
-          <div className="w-full h-full flex justify-start items-center">
-            <h1>loading</h1>
+        <div className="w-full flex justify-center p-10  my-24 lg:my-40">
+          <div className="h-[100vh] flex lg:justify-center gap-4 animate-pulse flex-col lg:flex-row">
+            <div className="lg:w-[360px] lg:h-[400px] bg-slate-200 rounded-lg w-[180px] h-[200px]">
+            </div>
+            <div className="space-y-2">
+            <div className="lg:w-[500px] w-[150px] lg:h-[50px]  h-[20px] bg-slate-200 rounded-lg"></div>
+            <div className="lg:w-[200px] w-[50px] lg:h-[50px]  h-[20px] bg-slate-200 rounded-lg"></div>
+            </div>
           </div>
+        </div>
         </>
       ) : (
         <>
@@ -77,9 +83,7 @@ function detail() {
           </div>
         </>
       )}
-      <Navbar />
-      <Footer />
-    </>
+    </Layout>
   );
 }
 

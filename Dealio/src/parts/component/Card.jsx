@@ -42,7 +42,7 @@ const Card = ({ category, id, title, price, btn, img, description, onclick, data
         <div className="space-y-2">
           <div className=" items-center gap-3 hidden lg:flex">
             <Ratting rattings={rattings} />
-            <h2>{rattings} out of 5</h2>
+            <h2>{rattings}/5</h2>
           </div>
           <div className="flex justify-between items-center flex-col lg:flex-row gap-2">
             <h1 className="lg:text-base text-gray-600 text-sm">

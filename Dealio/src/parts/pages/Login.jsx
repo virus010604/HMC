@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 
 export const awal = () => {
   const [isValid, setIsValid] = useState(false);
+  const [isShow, setIsShow] = useState(false);
 
   return (
     <div className="w-full flex h-[100vh]">
@@ -53,20 +54,15 @@ export const awal = () => {
                 <div className="flex gap-2  border-2 items-center rounded-full px-4 py-2 w-full">
                   <Lock color="#572dff" />
                   <input
-                    type="password"
+                    type={isShow ? "text" : "password"}
                     className="p-1 outline-none w-full"
                     id="pass"
                     placeholder="ketik disini..."
                   />
                   <button
                     onClick={(e) => {
-                      if (document.getElementById("pass").type === "password") {
-                        document.getElementById("pass").type = "text";
-                        e.preventDefault();
-                      } else {
-                        e.preventDefault();
-                        document.getElementById("pass").type = "password";
-                      }
+                      e.preventDefault();
+                      setIsShow(!isShow);
                     }}
                   >
                     <Eye color="black" className="cursor-pointer" />
@@ -145,31 +141,3 @@ export const awal = () => {
 };
 
 export default awal;
-
-// import React, { useState } from 'react';
-
-// const awal = () => {
-//   const [isValid, setIsValid] = useState(false);
-
-//   const handleValidation = () => {
-//     // Add your validation logic here
-//     // For example, set isValid to true if validation passes
-//     setIsValid(true);
-//   };
-
-//   return (
-//     <div className='w-full h-[100vh] flex flex-col justify-center items-center'>
-//       <h1>Welcome to Doelio</h1>
-//       <Link to={isValid ? "/Beranda" : "#"}>
-//         <button
-//           className="bg-[#572dff] p-2 text-white rounded"
-//           onClick={handleValidation}
-//         >
-//           Get Started
-//         </button>
-//       </Link>
-//     </div>
-//   );
-// };
-
-// export default awal;

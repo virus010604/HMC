@@ -32,8 +32,22 @@ export const Cards = ({ onAddToCart }) => {
     <main className="w-full flex flex-col items-start justify-center">
       {isLoading ? (
         <>
-          <div className="w-full h-[100vh] flex justify-center items-center">
-            <h1 className="text-center">Loading...</h1>
+            <div className="grid lg:grid-cols-3 gap-5 w-full md:grid-cols-2 grid-cols-1 mx-auto">
+          {filteredData.map((_, index) => {
+            return (
+        <div key={index}> 
+          <div className="animate-pulse flex space-x-4">
+            <div className="rounded-lg bg-slate-200 h-60 w-72 p-7 flex flex-col justify-between">
+              <div className="w-28 bg-slate-50 h-5 rounded-lg"></div>
+              <div className="space-y-4">
+              <div className="w-48 bg-slate-50 h-5 rounded-lg"></div>
+              <div className="w-48 bg-slate-50 h-5 rounded-lg"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+            );
+          })}
           </div>
         </>
       ) : (

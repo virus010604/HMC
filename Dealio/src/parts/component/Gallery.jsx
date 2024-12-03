@@ -1,11 +1,11 @@
 import React from "react";
-import c from "../assets/img/c.jpg";
-import d from "../assets/img/d.jpg";
-import e from "../assets/img/e.jpg";
-import g from "../assets/img/g.jpg";
-import f from "../assets/img/f.jpg";
-import widec from "../assets/img/widec.jpg";
-import widea from "../assets/img/widea.jpg";
+import c from "../assets/img/c.webp";
+import d from "../assets/img/d.webp";
+import e from "../assets/img/e.webp";
+import g from "../assets/img/g.webp";
+import f from "../assets/img/f.webp";
+import widec from "../assets/img/widec.webp";
+import widea from "../assets/img/widea.webp";
 
 const gambar = [g, f, e, widec, d, widea, c];
 

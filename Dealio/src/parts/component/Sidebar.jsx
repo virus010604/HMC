@@ -42,8 +42,14 @@ export default function Sidebar({ isVisible, toggleSidebar, refreshSidebar }) {
                 </h1>
                 <button
                   onClick={() => {
-                    localStorage.removeItem(`${item.id}`);
-                    setData(data.filter((_, i) => i !== index));
+                    if (item.quantity > 1) {
+                      item.quantity -= 1;
+                      localStorage.setItem(`${item.id}`, JSON.stringify(item));
+                      setData([...data]);
+                    }else{
+                      localStorage.removeItem(`${item.id}`);
+                      setData(data.filter((_, i) => i !== index));
+                    }
                   }}
                 >
                   <Minus color="red" />
