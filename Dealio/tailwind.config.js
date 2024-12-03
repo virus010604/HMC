@@ -3,7 +3,13 @@ export default {
   content: [  "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        mons: ['Montserrat'],
+        pop: ['Poppins'],
+        geo: ['Geologica'],
+      },
+    },
   },
   plugins: [],
 }

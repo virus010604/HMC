@@ -1,0 +1,1 @@
+  let hargaAkhir = hitungDiskon(hargaBarang, persentaseDiskon);

@@ -44,6 +44,7 @@ function detail() {
         </>
       ) : (
         <>
+        
           <div className="lg:my-40 my-24 flex lg:justify-around gap-20 lg:w-full lg:px-20 flex-col lg:flex-row p-10 justify-center">
             <div className="">
               <img src={data?.image} alt="" className="w-[250px]" />
