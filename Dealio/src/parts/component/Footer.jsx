@@ -6,7 +6,7 @@ function Footer() {
       <div className="flex lg:justify-center lg:gap-28 flex-wrap gap-10">
         <div className="flex ">
           <img
-            src="../../src/parts/assets/img/footpic.png"
+            src="/assets/img/footpic.png"
             alt=""
             className="w-[250px] object-cover hidden lg:block"
           />
@@ -83,7 +83,7 @@ function Footer() {
         </div>
         <div>
           <h1>
-            &copy;Designed by <a className="text-[#572dff] font-bold" href="https://github.com/virus010604" target="_blank">Juan</a> |
+            Designed by <a className="text-[#572dff] font-bold" href="https://github.com/virus010604" target="_blank">&copy;Juan</a> |
             2024
           </h1>
         </div>

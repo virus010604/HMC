@@ -8,6 +8,7 @@ import Keranjang from "./parts/pages/Keranjang.jsx";
 import Detail from "./parts/pages/Detail.jsx";
 
 createRoot(document.getElementById("root")).render(
+  
   <StrictMode>
     <BrowserRouter>
       <Routes>
