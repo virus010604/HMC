@@ -18,7 +18,7 @@ export const awal = () => {
     <div className="w-full flex h-[100vh]">
       <div className="lg:w-1/2 absolute rotate-90 w-32 lg:static lg:rotate-0">
         <img
-          src="../../src/parts/assets/img/loginpic.png"
+          src="/assets/img/loginpic.png"
           alt=""
           className="rotate-90 w-[100vh]"
         />
@@ -59,6 +59,7 @@ export const awal = () => {
 
                     placeholder="ketik disini..."
                   />
+                
                   <button
                     onClick={(e) => {
                       e.preventDefault();
